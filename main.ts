@@ -17,9 +17,6 @@ scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath5, function (sprit
 scene.onOverlapTile(SpriteKind.Player, sprites.builtin.forestTiles0, function (sprite3, location3) {
     info.changeLifeBy(-1)
 })
-scene.onOverlapTile(SpriteKind.Player, sprites.builtin.forestTiles0, function (sprite6, location6) {
-	
-})
 info.onLifeZero(function () {
     game.gameOver(false)
 })
