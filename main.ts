@@ -1,35 +1,161 @@
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    info.setLife(3)
-    player1.setVelocity(100, 0)
-})
-scene.onOverlapTile(SpriteKind.Player, sprites.builtin.forestTiles0, function (sprite, location) {
-    game.setGameOverEffect(true, effects.confetti)
-    game.gameOver(true)
-})
-scene.onOverlapTile(SpriteKind.Player, sprites.castle.tilePath5, function (sprite4, location4) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite4, location4) {
     Player_Won += 1
     player1.setVelocity(0, 0)
     if (Player_Won == 1) {
-        info.setScore(game.runtime() / 100)
         game.showLongText("I See A Trophy! Let's Get It!", DialogLayout.Bottom)
+        console.log(player1.x)
     }
 })
-scene.onOverlapTile(SpriteKind.Player, sprites.builtin.forestTiles0, function (sprite3, location3) {
-    info.changeLifeBy(-1)
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    player1.setVelocity(100, 0)
+    started = 1
+    info.setScore(1000)
+})
+scene.onOverlapTile(SpriteKind.Player, img`
+    f f f f f f f f f f f f f f f f 
+    f 1 f f f f f 1 f f f f f f f f 
+    f f f 1 f f f f 1 f f f 1 1 f f 
+    f f f f 1 f f f f 1 f f f f f f 
+    f f f f f 1 f 1 f f f f f f f f 
+    f f f f f f 1 f f f f f f f f f 
+    f 1 f f f f f f f f f 1 f f f f 
+    f f 1 f 1 1 1 1 1 f f 1 f f f f 
+    1 f f f f f f f f f f f f f f f 
+    f f f f f f f 1 f f f f f 1 f f 
+    f f f f f f f f f f f f f f f f 
+    f f f f 1 f f f f f f f f f f f 
+    f f f f f f f f f f f f f f f f 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, function (sprite5, location5) {
+    animation.runImageAnimation(
+    player1,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . 2 2 2 2 2 2 2 2 . . . . 
+        . . . 2 4 2 2 2 2 2 2 c 2 . . . 
+        . . 2 c 4 2 2 2 2 2 2 c c 2 . . 
+        . 2 c c 4 4 4 4 4 4 2 c c 4 2 d 
+        . 2 c 2 e e e e e e e b c 4 2 2 
+        . 2 2 e b b e b b b e e b 4 2 2 
+        . 2 e b b b e b b b b e 2 2 2 2 
+        . e e 2 2 2 e 2 2 2 2 2 e 2 2 2 
+        . e e e e e e f e e e f e 2 d d 
+        . e e e e e e f e e f e e e 2 d 
+        . e e e e e e f f f e e e e e e 
+        . e f f f f e e e e f f f e e e 
+        . . f f f f f e e f f f f f e . 
+        . . . f f f . . . . f f f f . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . 2 2 2 2 2 2 . . . . 
+        . . . . . 2 2 4 4 2 2 2 2 . . . 
+        . . . . . c 4 2 2 2 2 2 c . . . 
+        . . . . 2 c 4 2 2 2 2 2 c 2 . . 
+        . . . e 2 c 4 2 2 2 2 2 c 2 e . 
+        . . . f 2 c 4 2 2 2 2 2 c 2 f . 
+        . . . f e c 2 2 2 2 2 2 c e f . 
+        . . . f 2 c 2 b b b b 2 c 2 f . 
+        . . . e 2 2 b c c c c b 2 2 e . 
+        . . . e e b c c c c c c b e e . 
+        . . . f e 4 4 4 4 4 4 4 4 e f . 
+        . . . f e d 2 2 2 2 2 2 d e f . 
+        . . . . 2 d d 2 2 2 2 d d 2 f . 
+        . . . . f 2 d 2 2 2 2 d 2 f . . 
+        . . . . . e 2 2 2 2 2 2 e . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . 2 2 2 2 2 2 2 2 . . 
+        . . . . . 2 c 2 2 2 2 2 2 4 2 . 
+        . . . . 2 c c 2 2 2 2 2 2 4 c 2 
+        . . d 2 4 c c 2 4 4 4 4 4 4 c c 
+        . d 2 2 4 c b e e e e e e e 2 c 
+        . 2 2 2 4 b e e b b b e b b e 2 
+        . 2 2 2 2 2 e b b b b e b b b e 
+        . 2 2 2 2 e 2 2 2 2 2 e 2 2 2 e 
+        . 2 d d 2 e f e e e f e e e e e 
+        . d d 2 e e e f e e f e e e e e 
+        . e e e e e e e f f f e e e e e 
+        . e e e e f f f e e e e f f f f 
+        . . . e f f f f f e e f f f f f 
+        . . . . f f f f . . . . f f f . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . e e c c e e . . . . 
+        . . . . . e 2 2 2 2 2 2 e . . . 
+        . . . . 2 c 2 2 2 2 2 2 c 2 . . 
+        . . . e 2 c 4 2 2 2 2 2 c 2 e . 
+        . . . f 2 2 4 2 2 2 2 2 c 2 f . 
+        . . . f 2 2 4 2 2 2 2 2 2 2 f . 
+        . . . f 2 2 4 2 2 2 2 2 2 2 f . 
+        . . . f 2 c 2 4 4 2 2 2 c 2 f . 
+        . . . e 2 c e c c c c e c 2 e . 
+        . . . e 2 e c b b b b c e 2 e . 
+        . . . e 2 e b b b b b b e 2 e . 
+        . . . e e e e e e e e e e e e . 
+        . . . f e d e e e e e e d e f . 
+        . . . f e 2 d e e e e d 2 e f . 
+        . . . f f e e e e e e e e f f . 
+        . . . . f f . . . . . . f f . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . 2 2 2 2 2 2 2 2 . . . . 
+        . . . 2 4 2 2 2 2 2 2 c 2 . . . 
+        . . 2 c 4 2 2 2 2 2 2 c c 2 . . 
+        . 2 c c 4 4 4 4 4 4 2 c c 4 2 d 
+        . 2 c 2 e e e e e e e b c 4 2 2 
+        . 2 2 e b b e b b b e e b 4 2 2 
+        . 2 e b b b e b b b b e 2 2 2 2 
+        . e e 2 2 2 e 2 2 2 2 2 e 2 2 2 
+        . e e e e e e f e e e f e 2 d d 
+        . e e e e e e f e e f e e e 2 d 
+        . e e e e e e f f f e e e e e e 
+        . e f f f f e e e e f f f e e e 
+        . . f f f f f e e f f f f f e . 
+        . . . f f f . . . . f f f f . . 
+        . . . . . . . . . . . . . . . . 
+        `],
+    50,
+    false
+    )
+    player1.setVelocity(50, 0)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, location) {
+    game.setGameOverEffect(true, effects.confetti)
+    game.gameOver(true)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.image`bost`, function (sprite3, location3) {
+    player1.setVelocity(200, 0)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.image`cone`, function (sprite3, location3) {
+    animation.runMovementAnimation(
+    player1,
+    animation.animationPresets(animation.waveRight),
+    100,
+    false
+    )
 })
 info.onLifeZero(function () {
     game.gameOver(false)
 })
-scene.onOverlapTile(SpriteKind.Player, sprites.castle.tileDarkGrass2, function (sprite2, location2) {
-	
-})
-scene.onOverlapTile(SpriteKind.Player, sprites.castle.tileDarkGrass2, function (sprite5, location5) {
-    player1.setVelocity(98, 0)
+scene.onOverlapTile(SpriteKind.Player, assets.image`road block`, function (sprite3, location3) {
+    animation.runMovementAnimation(
+    player1,
+    animation.animationPresets(animation.bobbing),
+    1000,
+    false
+    )
+    info.changeLifeBy(-1)
+    player1.setPosition(20, 60)
+    player1.setVelocity(100, 0)
 })
 let Players_Y_Value = 0
+let started = 0
 let Player_Won = 0
 let player1: Sprite = null
-info.setLife(3)
+info.setLife(4)
 tiles.setCurrentTilemap(tilemap`level2`)
 scroller.setLayerImage(scroller.BackgroundLayer.Layer1, img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -174,19 +300,32 @@ player1 = sprites.create(img`
 scroller.setCameraScrollingMultipliers(1, 0, scroller.BackgroundLayer.Layer1)
 player1.setPosition(20, scene.cameraProperty(CameraProperty.Y))
 Player_Won = 0
-game.splash("Press B to Go!")
-for (let index = 0; index < 25; index++) {
-    tiles.setTileAt(tiles.getTileLocation(randint(15, 242), randint(1, 7)), sprites.castle.tileDarkGrass2)
+game.splash("Press B to Go!", "doge these objects")
+game.splash("cones, oil, road blocks")
+game.splash("and get these objects ")
+game.splash("boosts", "they're light blue with arrows")
+for (let index = 0; index < 15; index++) {
+    tiles.setTileAt(tiles.getTileLocation(randint(15, 235), randint(1, 7)), assets.image`cone`)
 }
-for (let index = 0; index < 25; index++) {
-    tiles.setTileAt(tiles.getTileLocation(randint(15, 242), randint(1, 7)), sprites.castle.tileDarkGrass2)
+for (let index = 0; index < 15; index++) {
+    tiles.setTileAt(tiles.getTileLocation(randint(15, 235), randint(1, 7)), assets.image`road block`)
 }
-for (let index = 0; index < 25; index++) {
-    tiles.setTileAt(tiles.getTileLocation(randint(15, 242), randint(1, 7)), sprites.castle.tileDarkGrass2)
+for (let index = 0; index < 15; index++) {
+    tiles.setTileAt(tiles.getTileLocation(randint(15, 235), randint(1, 7)), assets.image`oil`)
 }
-for (let index = 0; index < 2; index++) {
-    tiles.setTileAt(tiles.getTileLocation(randint(15, 242), randint(1, 7)), sprites.castle.tileDarkGrass2)
+for (let index = 0; index < 5; index++) {
+    tiles.setTileAt(tiles.getTileLocation(randint(15, 235), randint(1, 7)), assets.image`bost`)
 }
+game.onUpdateInterval(5000, function () {
+    if (player1.x > 40 && player1.x < 3860) {
+        player1.setVelocity(100, 0)
+    }
+})
+game.onUpdateInterval(1000, function () {
+    if (Player_Won < 2 && started == 1) {
+        info.changeScoreBy(-1)
+    }
+})
 forever(function () {
     Players_Y_Value = player1.y
     scroller.scrollBackgroundWithCamera(scroller.CameraScrollMode.OnlyHorizontal, scroller.BackgroundLayer.Layer1)

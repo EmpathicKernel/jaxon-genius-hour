@@ -1,0 +1,27 @@
+{
+    "image1": {
+        "data": "hwQQABAAAACZmZn5n5mZmZmZmfmfmZmZmZmZ+Z+ZmZmZmZn5n5mZmZmZmfmfmZmZmZmZ+Z+ZmZmZmZn5n5mZmZ+ZmfmfmZn5/5mZ+Z+Zmf//n5n5n5n5//n/mfmfmf+fmf+f+Z/5/5mZ+f/5n/+fmZmZ/////5mZmZn5//+fmZmZmZn//5mZmQ==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "bost"
+    },
+    "image2": {
+        "data": "hwQQABAAAAD/////8f8PAB////H//w8A////H///DwD/8f////8PAP8f/x//Hw8A///xH///DwD//x8f//8PAB//8R8f/w8A//H/H///DwD/H/////8PAP///////w8A////Ef//DwD/8f////8PAP/x//8f/w8A////////DwD///////8PAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "oil"
+    },
+    "image3": {
+        "data": "hwQQABAAAAD//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////w==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "road block"
+    },
+    "image4": {
+        "data": "hwQQABAAAAD//////////09ERERERET0TxEREREREfRPQUREREQU9E9BERERERT0T0FBREQUFPRPQUERERQU9E9BQUEUFBT0T0FBQRQUFPRPQUERERQU9E9BQUREFBT0T0ERERERFPRPQUREREQU9E8RERERERH0T0RERERERPT//////////w==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "cone"
+    },
+    "*": {
+        "mimeType": "image/x-mkcd-f4",
+        "dataEncoding": "base64",
+        "namespace": "myImages"
+    }
+}
