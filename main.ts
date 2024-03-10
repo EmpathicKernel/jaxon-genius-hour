@@ -1,9 +1,8 @@
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite4, location4) {
     Player_Won += 1
     player1.setVelocity(0, 0)
-    if (Player_Won == 1) {
+    if (Player_Won >= 1) {
         game.showLongText("I See A Trophy! Let's Get It!", DialogLayout.Bottom)
-        console.log(player1.x)
     }
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
